@@ -19,14 +19,14 @@
         }
     }
     #gender:after {
-        content: '';
+        content: "";
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
         display: block;
         width: 16px;
         height: 16px;
-        background: url('../icons/switch.svg') center (center / cover) no-repeat;
+        background: url("../icons/switch.svg") center (center / cover) no-repeat;
     }
     &__choose {
         position: relative;
@@ -40,7 +40,7 @@
             width: 170px;
             height: 50px;
             padding: 0 10px;
-            background: #FFFFFF;
+            background: #ffffff;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
             border: none;
             text-align: center;
@@ -71,7 +71,7 @@
         width: 490px;
         height: 1px;
         margin: 40px auto;
-        background-color: rgba(0,0,0, .2);
+        background-color: rgba(0, 0, 0, 0.2);
     }
     &__total {
         width: 490px;
