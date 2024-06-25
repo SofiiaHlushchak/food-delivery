@@ -43,11 +43,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const dealline = "2024-07-25";
 
     const getTimeRemaining = (endtime) => {
-        const totalTime = Date.parse(endtime) - Date.parse(new Date()),
-            days = Math.floor(totalTime / (1000 * 60 * 60 * 24)),
-            hours = Math.floor((totalTime / (1000 * 60 * 60)) % 24),
-            minutes = Math.floor((totalTime / 1000 / 60) % 60),
+        let days, hours, minutes, seconds;
+        const totalTime = Date.parse(endtime) - Date.parse(new Date());
+        if (totalTime <= 0) {
+            days = 0;
+            hours = 0;
+            minutes = 0;
+            seconds = 0;
+        } else {
+            days = Math.floor(totalTime / (1000 * 60 * 60 * 24));
+            hours = Math.floor((totalTime / (1000 * 60 * 60)) % 24);
+            minutes = Math.floor((totalTime / 1000 / 60) % 60);
             seconds = Math.floor((totalTime / 1000) % 60);
+        }
 
         return {
             total: totalTime,
