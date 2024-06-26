@@ -99,4 +99,36 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     setClock(".timer", dealline);
+
+    // MODAL
+
+    const modalTrigger = document.querySelectorAll("[data-modal]"),
+        btnCloseModal = document.querySelector("[data-close]");
+    modal = document.querySelector(".modal");
+
+    modalTrigger.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            modal.classList.toggle("show");
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    const closeModal = () => {
+        modal.classList.toggle("show");
+        document.body.style.overflow = "";
+    };
+
+    btnCloseModal.addEventListener("click", closeModal);
+
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if(e.code === "Escape" && modal.classList.contains("show")) {
+            closeModal();
+        }
+    })
 });
