@@ -152,7 +152,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // Menu for day
 
     class Card {
-        constructor(title, src, alt, description, price, parentSelector) {
+        constructor(
+            title,
+            src,
+            alt,
+            description,
+            price,
+            parentSelector,
+            ...classes
+        ) {
             this.title = title;
             this.src = src;
             this.alt = alt;
@@ -161,6 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
             this.transfer = 40;
             this.changeToUAN();
             this.parent = document.querySelector(parentSelector);
+            this.classes = classes;
         }
 
         changeToUAN() {
@@ -168,10 +177,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         render() {
-            const item = document.createElement("div"),
-                container = document.querySelector(".container");
+            const item = document.createElement("div");
 
-            item.innerHTML = `<div class="menu__item">
+            if (this.classes.length === 0) {
+                this.item = "menu__item";
+                item.classList.add(this.item);
+            } else {
+                this.classes.forEach((className) =>
+                    item.classList.add(className)
+                );
+            }
+
+            item.innerHTML = `
                         <img src="${this.src}" alt="${this.alt}" />
                         <h3 class="menu__item-subtitle">${this.title}</h3>
                         <div class="menu__item-descr">
@@ -183,8 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             <div class="menu__item-total">
                                 <span>${this.price}</span> грн/день
                             </div>
-                        </div>
-                    </div>`;
+                        </div>`;
             this.parent.append(item);
         }
     }
