@@ -214,8 +214,21 @@ document.addEventListener("DOMContentLoaded", () => {
         return await result.json();
     };
 
-    getDataResource("http://localhost:3000/menu").then((data) => {
-        data.forEach(({ title, img, altimg, descr, price }) => {
+    // getDataResource("http://localhost:3000/menu").then((data) => {
+    // data.forEach(({ title, img, altimg, descr, price }) => {
+    //     new Card(
+    //         title,
+    //         img,
+    //         altimg,
+    //         descr,
+    //         price,
+    //         ".menu .container"
+    //     ).render();
+    // });
+    // });
+
+    axios.get("http://localhost:3000/menu").then((data) => {
+        data.data.forEach(({ title, img, altimg, descr, price }) => {
             new Card(
                 title,
                 img,
@@ -241,15 +254,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const postData = async (url, data) => {
-        const result = await fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-type": "application/json",
-            },
-            body: data,
-        });
+        // const result = await fetch(url, {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-type": "application/json",
+        //     },
+        //     body: data,
+        // });
 
-        return await result.json();
+        const result = await axios.post(url, data);
+        return await result.data;
     };
 
     function bindPostData(form) {
