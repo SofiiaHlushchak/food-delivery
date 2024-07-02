@@ -328,9 +328,7 @@ document.addEventListener("DOMContentLoaded", () => {
         currentIndex = document.querySelector("#current"),
         slidesWrapper = document.querySelector(".offer__slider-wrapper"),
         slidesField = document.querySelector(".offer__slider-inner"),
-        width = window.getComputedStyle(slidesWrapper).width,
-        slider = document.querySelector(".offer__slider"),
-        dots = [];
+        width = window.getComputedStyle(slidesWrapper).width;
     let slideIndex = 1,
         offset = 0;
 
@@ -363,16 +361,13 @@ document.addEventListener("DOMContentLoaded", () => {
             offset += +width.slice(0, width.length - 2);
         }
 
-        slidesField.style.transform = `translateX(-${offset}px)`;
-
         if (slideIndex === slides.length) {
             slideIndex = 1;
         } else {
             slideIndex++;
         }
-
         currentSlideIndex(slideIndex);
-        activeDot(slideIndex);
+        slidesField.style.transform = `translateX(-${offset}px)`;
     });
 
     prev.addEventListener("click", () => {
@@ -382,8 +377,6 @@ document.addEventListener("DOMContentLoaded", () => {
             offset -= +width.slice(0, width.length - 2);
         }
 
-        slidesField.style.transform = `translateX(-${offset}px)`;
-
         if (slideIndex === 1) {
             slideIndex = slides.length;
         } else {
@@ -391,44 +384,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         currentSlideIndex(slideIndex);
-        activeDot(slideIndex);
-    });
 
-    // navigation
-
-    const indicators = document.createElement("ol");
-    indicators.classList.add("carousel-indicators");
-    slider.appendChild(indicators);
-
-    for (let i = 0; i < slides.length; i++) {
-        const dot = document.createElement("li");
-        dot.classList.add("dot");
-        dot.setAttribute("data-slide-to", i + 1);
-
-        if (i == 0) {
-            dot.classList.add("dot__active");
-        }
-
-        indicators.appendChild(dot);
-        dots.push(dot);
-    }
-
-    function activeDot(index) {
-        dots.forEach((dot) => dot.classList.remove("dot__active"));
-        dots[index - 1].classList.add("dot__active");
-    }
-
-    dots.forEach((item) => {
-        item.addEventListener("click", (e) => {
-            const slideTo = e.target.getAttribute("data-slide-to");
-
-            offset = +width.slice(0, width.length - 2) * (+slideTo - 1);
-            slideIndex = +slideTo;
-
-            slidesField.style.transform = `translateX(-${offset}px)`;
-
-            currentSlideIndex(slideIndex);
-            activeDot(slideIndex);
-        });
+        slidesField.style.transform = `translateX(-${offset}px)`;
     });
 });
