@@ -118,16 +118,16 @@
                 <div class="offer__advantages">
                     <h2>Швидко та корисно</h2>
                     <div class="offer__advantages-text">
-                        Готування вдома займає багато сил, часу та нервів. Ми
-                        привозимо їжу відразу на цілий день, і ти можеш діяти
-                        так, як тобі зручно, не підлаштовуючись ні під кого і
-                        будучи впевненим як продукт!
+                        Приготування їжі вдома займає багато сил, часу та
+                        нервів. Ми привозимо їжу відразу на цілий день, і ти
+                        можеш діяти так, як тобі зручно, не підлаштовуючись під
+                        когось і будучи впевненим у якості продукту!
                     </div>
-                    <h2>Правильный рацион</h2>
+                    <h2>Правильний раціон</h2>
                     <div class="offer__advantages-text">
-                        Ми розробили спеціальне меню, де враховано всі нюанси
-                        правильного харчування, від балансу БЖУ до їх
-                        приготування та подрібнення раціону.
+                        Ми розробили спеціальне меню, де враховані всі нюанси
+                        правильного харчування: від балансу БЖВ до їх
+                        приготування та розподілу раціону.
                     </div>
                 </div>
                 <div class="offer__slider">
@@ -173,12 +173,12 @@
                 <div class="calculating__field">
                     <div class="calculating__subtitle">Ваша стать</div>
                     <div class="calculating__choose" id="gender">
-                        <div
-                            class="calculating__choose-item calculating__choose-item_active"
-                        >
+                        <div id="female" class="calculating__choose-item">
                             Жінка
                         </div>
-                        <div class="calculating__choose-item">Чоловік</div>
+                        <div id="male" class="calculating__choose-item">
+                            Чоловік
+                        </div>
                     </div>
 
                     <div class="calculating__subtitle">Ваша конституція</div>
@@ -186,19 +186,19 @@
                         <input
                             type="text"
                             id="height"
-                            placeholder="Введите рост"
+                            placeholder="Введіть ріст"
                             class="calculating__choose-item"
                         />
                         <input
                             type="text"
                             id="weight"
-                            placeholder="Введите вес"
+                            placeholder="Введіть вагу"
                             class="calculating__choose-item"
                         />
                         <input
                             type="text"
                             id="age"
-                            placeholder="Введите возраст"
+                            placeholder="Введіть вік"
                             class="calculating__choose-item"
                         />
                     </div>
@@ -207,19 +207,32 @@
                         Виберіть вашу фізичну активність
                     </div>
                     <div class="calculating__choose calculating__choose_big">
-                        <div id="low" class="calculating__choose-item">
+                        <div
+                            data-ratio="1.2"
+                            id="low"
+                            class="calculating__choose-item"
+                        >
                             Низька активність
                         </div>
                         <div
+                            data-ratio="1.375"
                             id="small"
-                            class="calculating__choose-item calculating__choose-item_active"
+                            class="calculating__choose-item"
                         >
                             Невисока активність
                         </div>
-                        <div id="medium" class="calculating__choose-item">
+                        <div
+                            data-ratio="1.55"
+                            id="medium"
+                            class="calculating__choose-item"
+                        >
                             Помірна активність
                         </div>
-                        <div id="high" class="calculating__choose-item">
+                        <div
+                            data-ratio="1.725"
+                            id="high"
+                            class="calculating__choose-item"
+                        >
                             Висока активність
                         </div>
                     </div>
