@@ -1,6 +1,4 @@
-function timer() {
-    const dealline = "2024-07-25";
-
+function timer(id, dealline) {
     const getTimeRemaining = (endtime) => {
         let days, hours, minutes, seconds;
         const totalTime = Date.parse(endtime) - Date.parse(new Date());
@@ -57,7 +55,7 @@ function timer() {
         }
     };
 
-    setClock(".timer", dealline);
+    setClock(id, dealline);
 }
 
-module.exports = timer;
+export default timer;

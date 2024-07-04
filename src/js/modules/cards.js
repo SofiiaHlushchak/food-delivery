@@ -53,16 +53,6 @@ function cards() {
         }
     }
 
-    const getDataResource = async (url) => {
-        const result = await fetch(url);
-
-        if (!result.ok) {
-            throw new Error(`Could not fetch ${url}, status: ${result.status}`);
-        }
-
-        return await result.json();
-    };
-
     // getDataResource("http://localhost:3000/menu").then((data) => {
     // data.forEach(({ title, img, altimg, descr, price }) => {
     //     new Card(
@@ -90,4 +80,4 @@ function cards() {
     });
 }
 
-module.exports = cards;
+export default cards;
